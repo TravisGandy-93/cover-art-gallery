@@ -13,7 +13,7 @@ function getCovers() {
             const coverMarkup = `
               <div data-id=${cover.id}>
                 <img src=${cover.attributes.image_url} height="250" width="250">
-                <h3>${cover.attributes.stars} star rating</h3>
+                <h3>CoverArt has ${cover.attributes.stars} star rating</h3>
                 <h2>${cover.attributes.album.title}</h2>
                 <button data-id=${cover.id}>edit</button>
               </div>
