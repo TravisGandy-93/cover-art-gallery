@@ -61,20 +61,29 @@ function createCoverFormHandler(e) {
 }
 
 function postFetchAlbum(title, tracks, artist, origin) {
-    const bodyData = {title, tracks, artist, origin};
+    const albumData = {title, tracks, artist, origin};
     fetch(albumEndPoint, {
         // POST request
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(bodyData)
+        body: JSON.stringify(albumData)
       })
       .then(res => res.json())
       .then(albums => {
-        console.log(albums);
+        populateAlbumDropdown();
     })
 }
 
 function postFetchCover(stars, image_url, album_id) {
-    console.log(stars, image_url, album_id);
+    const starData = {stars, image_url, album_id}
+    fetch(endPoint, { 
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(starData)
+         })
+      .then(res => res.json())
+      .then(covers => {
+          getCovers();
+      })
     
 }
