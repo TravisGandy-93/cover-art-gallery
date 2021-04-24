@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
   populateAlbumDropdown()
   const createAlbumForm = document.querySelector("#create-album-form")
   const createCoverForm = document.querySelector("#create-cover-form")
-  createAlbumForm.addEventListener("submit", (e) => createFormHandler(e))
-  createCoverForm.addEventListener("submit", (e) => createFormHandler(e))
+  createAlbumForm.addEventListener("submit", (e) => createAlbumFormHandler(e))
+  createCoverForm.addEventListener("submit", (e) => createCoverFormHandler(e))
 });
 
 function getCovers() {
@@ -41,7 +41,27 @@ function populateAlbumDropdown(){
     })
 }
 
-function createFormHandler(e){
+function createAlbumFormHandler(e){
     e.preventDefault()
-    debugger;
+    const titleInput = document.querySelector("#input-title").value
+    const artistInput = document.querySelector('#input-artist').value
+    const originInput = document.querySelector('#input-origin').value
+    postFetchAlbum(titleInput, artistInput, originInput)
+}
+
+function createCoverFormHandler(e) {
+    e.preventDefault()
+    const starsInput = document.querySelector('#input-stars').value
+    const urlInput = document.querySelector('#input-url').value
+    postFetchCover(starsInput, urlInput)
+}
+
+function postFetchAlbum(title, artist, origin) {
+    console.log(title, artist, origin);
+    
+}
+
+function postFetchCover(stars, image_url) {
+    console.log(stars, image_url);
+    
 }
