@@ -1,4 +1,5 @@
 const endPoint = "http://127.0.0.1:3000/api/v1/covers";
+const albumEndPoint = "http://127.0.0.1:3000/api/v1/albums";
 
 document.addEventListener('DOMContentLoaded', () => {
   getCovers()
@@ -20,6 +21,7 @@ function getCovers() {
                 <img src=${cover.attributes.image_url} height="250" width="250">
                 <h3>CoverArt has ${cover.attributes.stars} star rating</h3>
                 <h2>${cover.attributes.album.title}</h2>
+                <h4>tracks: ${cover.attributes.album.tracks}</h4>
                 <button data-id=${cover.id}>edit</button>
               </div>
               <br><br>`;
@@ -30,7 +32,7 @@ function getCovers() {
   }
 
 function populateAlbumDropdown(){
-      fetch("http://127.0.0.1:3000/api/v1/albums")
+      fetch(albumEndPoint)
       .then(res => res.json())
       .then(albums => {
       albums.data.forEach(album => { 
@@ -44,9 +46,10 @@ function populateAlbumDropdown(){
 function createAlbumFormHandler(e){
     e.preventDefault()
     const titleInput = document.querySelector("#input-title").value
+    const tracksInput = document.querySelector("#input-tracks").value
     const artistInput = document.querySelector('#input-artist').value
     const originInput = document.querySelector('#input-origin').value
-    postFetchAlbum(titleInput, artistInput, originInput)
+    postFetchAlbum(titleInput, tracksInput, artistInput, originInput)
 }
 
 function createCoverFormHandler(e) {
@@ -57,9 +60,18 @@ function createCoverFormHandler(e) {
     postFetchCover(starsInput, urlInput, albumIdInput)
 }
 
-function postFetchAlbum(title, artist, origin) {
-    console.log(title, artist, origin);
-    
+function postFetchAlbum(title, tracks, artist, origin) {
+    const bodyData = {title, tracks, artist, origin};
+    fetch(albumEndPoint, {
+        // POST request
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(bodyData)
+      })
+      .then(res => res.json())
+      .then(albums => {
+        console.log(albums);
+    })
 }
 
 function postFetchCover(stars, image_url, album_id) {
