@@ -3,7 +3,9 @@ const endPoint = "http://127.0.0.1:3000/api/v1/covers";
 document.addEventListener('DOMContentLoaded', () => {
   getCovers()
   populateAlbumDropdown()
+  const createAlbumForm = document.querySelector("#create-album-form")
   const createCoverForm = document.querySelector("#create-cover-form")
+  createAlbumForm.addEventListener("submit", (e) => createFormHandler(e))
   createCoverForm.addEventListener("submit", (e) => createFormHandler(e))
 });
 
@@ -27,7 +29,7 @@ function getCovers() {
       })
   }
 
-  function populateAlbumDropdown(){
+function populateAlbumDropdown(){
       fetch("http://127.0.0.1:3000/api/v1/albums")
       .then(res => res.json())
       .then(albums => {
@@ -37,4 +39,9 @@ function getCovers() {
         document.getElementById("mySelect").appendChild(optionObj);
         })
     })
-  }
+}
+
+function createFormHandler(e){
+    e.preventDefault()
+    debugger;
+}
