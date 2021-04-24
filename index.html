@@ -9,6 +9,21 @@
     
     <div class="form-container">
 
+        <form id="create-album-form" style="">
+            <h3>Create a Album!</h3>
+        
+            <input id='input-title' type="text" name="title" value="" placeholder="Enter your album title..." class="input-text">
+            <br><br>
+            <input id='input-artist' type="text" name="artist" value="" placeholder="Enter your album's artist..." class="input-text">
+            <br><br>
+            <textarea id='input-origin' name="origin" rows="8" cols="80" value="" placeholder="Enter your album origin or back story..."></textarea>
+            
+           
+            <br><br>
+        
+            <input id= 'create-button' type="submit" name="submit" value="Create New album" class="submit">
+          </form>
+
         <form id="create-cover-form" style="">
           <h3>Create a Cover!</h3>
       
@@ -17,11 +32,10 @@
           <input id='input-url' type="text" name="image" value="" placeholder="Enter your cover image URL..." class="input-text">
           <br><br>
       
-          <select id="albums" name="albums">
-            <option value="1"></option>
-            <option value="2"></option>
-            <option value="3"></option>
+          <select id="mySelect" name="albums">
+          
           </select>
+          
           <br><br>
       
           <input id= 'create-button' type="submit" name="submit" value="Create New cover" class="submit">
