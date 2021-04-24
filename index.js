@@ -53,7 +53,8 @@ function createCoverFormHandler(e) {
     e.preventDefault()
     const starsInput = document.querySelector('#input-stars').value
     const urlInput = document.querySelector('#input-url').value
-    postFetchCover(starsInput, urlInput)
+    const albumIdInput = (document.querySelector('#mySelect').selectedIndex + 1)
+    postFetchCover(starsInput, urlInput, albumIdInput)
 }
 
 function postFetchAlbum(title, artist, origin) {
@@ -61,7 +62,7 @@ function postFetchAlbum(title, artist, origin) {
     
 }
 
-function postFetchCover(stars, image_url) {
-    console.log(stars, image_url);
+function postFetchCover(stars, image_url, album_id) {
+    console.log(stars, image_url, album_id);
     
 }
