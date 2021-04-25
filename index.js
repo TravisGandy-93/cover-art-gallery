@@ -44,6 +44,7 @@ function createAlbumFormHandler(e){
     const artistInput = document.querySelector('#input-artist').value
     const originInput = document.querySelector('#input-origin').value
     postFetchAlbum(titleInput, tracksInput, artistInput, originInput)
+  
 }
 
 function createCoverFormHandler(e) {
@@ -68,17 +69,22 @@ function postFetchAlbum(title, tracks, artist, origin) {
     })
 }
 
-function postFetchCover(stars, image_url, album_id, album_title, album_tracks, album_origin) {
-    const starData = {stars, image_url, album_id, album_title, album_tracks, album_origin}
+function postFetchCover(stars, image_url, album_id) {
+    
+    const starData = {stars, image_url, album_id}
+    
     fetch(endPoint, { 
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(starData)
          })
       .then(res => res.json())
-      .then(covers => {
-          console.log(covers);
-          getCovers();
+      .then(cover => {
+          
+        const newCover = new Cover(cover.data.id, cover.data.attributes)
+
+        document.querySelector('#cover-container').innerHTML += newCover.renderCover();
+       // location.reload()
       })
     
 }
