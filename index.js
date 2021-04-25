@@ -18,26 +18,11 @@ function getCovers() {
             // double check how your data is nested in the console so you can successfully access the attributes of each individual object
          //  debugger
             let newCover = new Cover(cover, cover.attributes)
+           document.querySelector('#cover-container').innerHTML += newCover.renderCover()
            
-            render(cover)
             })
            // .catch(err => console.log(err))
     })
-}
-
-function render(cover) {
-    const coverMarkup = `
-              <div data-id=${cover.id}>
-                <img src=${cover.attributes.image_url} height="250" width="250">
-                <h3>CoverArt has ${cover.attributes.stars} star rating</h3>
-                <h2>${cover.attributes.album.title}</h2>
-                <h4>tracks: ${cover.attributes.album.tracks}</h4>
-                <button data-id=${cover.id}>edit</button>
-              </div>
-              <br><br>`;
-    
-              document.querySelector('#cover-container').innerHTML += coverMarkup
-        
 }
 
 function populateAlbumDropdown(){
@@ -83,8 +68,8 @@ function postFetchAlbum(title, tracks, artist, origin) {
     })
 }
 
-function postFetchCover(stars, image_url, album_id) {
-    const starData = {stars, image_url, album_id}
+function postFetchCover(stars, image_url, album_id, album_title, album_tracks, album_origin) {
+    const starData = {stars, image_url, album_id, album_title, album_tracks, album_origin}
     fetch(endPoint, { 
         method: "POST",
         headers: {"Content-Type": "application/json"},
