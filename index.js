@@ -16,7 +16,14 @@ function getCovers() {
       .then(covers => {
         covers.data.forEach(cover => {
             // double check how your data is nested in the console so you can successfully access the attributes of each individual object
-            const coverMarkup = `
+            render(cover)
+            })
+           // .catch(err => console.log(err))
+    })
+}
+
+function render(cover) {
+    const coverMarkup = `
               <div data-id=${cover.id}>
                 <img src=${cover.attributes.image_url} height="250" width="250">
                 <h3>CoverArt has ${cover.attributes.stars} star rating</h3>
@@ -27,9 +34,8 @@ function getCovers() {
               <br><br>`;
     
               document.querySelector('#cover-container').innerHTML += coverMarkup
-          })
-      })
-  }
+        
+}
 
 function populateAlbumDropdown(){
       fetch(albumEndPoint)
@@ -83,6 +89,7 @@ function postFetchCover(stars, image_url, album_id) {
          })
       .then(res => res.json())
       .then(covers => {
+          console.log(covers);
           getCovers();
       })
     
