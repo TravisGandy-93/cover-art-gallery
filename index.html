@@ -9,11 +9,16 @@
 
     <title>Album example for Bootstrap</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!--project js-->
+    <script type="text/javascript" src="src/cover.js"></script>
+    <script type="text/javascript" src="index.js"></script>
     <!-- Custom styles for this template -->
-    <link href="album.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
   </head>
 
   <body>
@@ -51,14 +56,49 @@
     </header>
 
     <main role="main">
-
+        
       <section class="jumbotron text-center">
+          
         <div class="container">
-          <h1 class="jumbotron-heading">Album example</h1>
-          <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
-          <p>
-            <a href="#" class="btn btn-primary my-2">Main call to action</a>
-            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+            <!--ALBUM FORM-->
+            <form id="create-album-form">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Album Title</label>
+                  <input type="text" class="form-control" id='input-title' aria-describedby="emailHelp" placeholder="Enter your album title...">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Track Count</label>
+                    <input type="text" class="form-control" id='input-tracks' placeholder="Enter your album tracks count...">
+                  </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Artist</label>
+                  <input type="text" class="form-control" id='input-artist' placeholder="Enter your album's artist...">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Origin</label>
+                    <textarea class="form-control" id='input-origin' rows="3" placeholder="Enter your album origin or back story..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark">Submit</button>
+              </form>
+              <br><br>
+              <!--Cover Form-->
+              <form id="create-cover-form">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Star Rating</label>
+                  <input type="email" class="form-control" id='input-stars' aria-describedby="emailHelp" placeholder="Enter your cover star rating...">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">CoverArt Url</label>
+                  <input type="password" class="form-control" id='input-url' placeholder="Enter your cover image URL...">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">The Album</label>
+                    <select class="form-control" id="mySelect">
+                      
+                    </select>
+                  </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
           </p>
         </div>
       </section>
@@ -225,8 +265,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../../../dist/js/bootstrap.min.js"></script>
-    <script src="../../../../assets/js/vendor/holder.min.js"></script>
+    
   </body>
 </html>
