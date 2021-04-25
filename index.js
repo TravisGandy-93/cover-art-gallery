@@ -16,6 +16,9 @@ function getCovers() {
       .then(covers => {
         covers.data.forEach(cover => {
             // double check how your data is nested in the console so you can successfully access the attributes of each individual object
+         //  debugger
+            let newCover = new Cover(cover, cover.attributes)
+           
             render(cover)
             })
            // .catch(err => console.log(err))
