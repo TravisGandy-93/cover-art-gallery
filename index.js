@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const createCoverForm = document.querySelector("#create-cover-form")
   createAlbumForm.addEventListener("submit", (e) => createAlbumFormHandler(e))
   createCoverForm.addEventListener("submit", (e) => createCoverFormHandler(e))
+  createAlbumForm.addEventListener("submit", reset())
+  createCoverForm.addEventListener("submit", reset())
 });
 
 function getCovers() {
