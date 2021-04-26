@@ -1,54 +1,136 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="data:,">
+    <title>Album example for Bootstrap</title>
+
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <!--project js-->
+    <script type="text/javascript" src="src/cover.js"></script>
     <script type="text/javascript" src="index.js"></script>
-</head>
-<body style="text-align: center;">
-    
-    <div class="form-container">
+    <!-- Custom styles for this template -->
+    <link href="index.css" rel="stylesheet">
+  </head>
 
-        <form id="create-album-form" style="">
-            <h3>Create a Album!</h3>
-        
-            <input id='input-title' type="text" name="title" value="" placeholder="Enter your album title..." class="input-text">
-            <br><br>
-            <input id='input-tracks' type="text" name="tracks" value="" placeholder="Enter your album tracks count..." class="input-text">
-            <br><br>
-            <input id='input-artist' type="text" name="artist" value="" placeholder="Enter your album's artist..." class="input-text">
-            <br><br>
-            <textarea id='input-origin' name="origin" rows="8" cols="80" value="" placeholder="Enter your album origin or back story..."></textarea>
-            
-           
-            <br><br>
-        
-            <input id= 'create-button' type="submit" name="submit" value="Create New album" class="submit">
-          </form>
+  <body>
 
-        <form id="create-cover-form" style="">
-          <h3>Create a Cover!</h3>
-      
-          <input id='input-stars' type="text" name="stars" value="" placeholder="Enter your cover star rating..." class="input-text">
-          <br><br>
-          <input id='input-url' type="text" name="image" value="" placeholder="Enter your cover image URL..." class="input-text">
-          <br><br>
-      
-          <select id="mySelect" name="albums">
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">Welcome to the Cover Art Gallery where you can come to add to or enjoy the art that has served as the "thousand words" summary of some amazing musical masterpieces. Please add to our collection by entering an Album and Cover into our system for other music and art lovers like yourself to come enjoy.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="https://twitter.com/" class="text-white">Share on Twitter</a></li>
+                <li><a href="https://www.facebook.com/" class="text-white">Share on Facebook</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            <strong>CoverArt Gallery</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+        
+      <section class="jumbotron text-center">
           
-          </select>
+        <div class="container">
+            <!--ALBUM FORM-->
+            <form id="create-album-form">
+                <div class="form-group">
+                  <label for="exampleInputEmail1" style="font-weight: bold; color: rgb(247, 202, 202); font-size: 20px;">Album Title</label>
+                  <input type="text" class="form-control" id='input-title' aria-describedby="emailHelp" placeholder="Enter your album title...">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1" style="font-weight: bold; color: rgb(247, 202, 202); font-size: 20px;">Track Count</label>
+                    <input type="text" class="form-control" id='input-tracks' placeholder="Enter your album tracks count...">
+                  </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1" style="font-weight: bold; color: rgb(247, 202, 202); font-size: 20px;">Artist</label>
+                  <input type="text" class="form-control" id='input-artist' placeholder="Enter your album's artist...">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1" style="font-weight: bold; color: rgb(247, 202, 202); font-size: 20px;">Origin</label>
+                    <textarea class="form-control" id='input-origin' rows="3" placeholder="Enter your album origin or back story..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark">Submit</button>
+              </form>
+              <br><br>
+              <!--Cover Form-->
+              <form id="create-cover-form">
+                <div class="form-group">
+                  <label for="exampleInputEmail1" style="font-weight: bold; color: rgb(247, 202, 202); font-size: 20px;">Star Rating</label>
+                  <input type="text" class="form-control" id='input-stars' aria-describedby="emailHelp" placeholder="Enter your cover star rating...">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1" style="font-weight: bold; color: rgb(247, 202, 202); font-size: 20px;">CoverArt Url</label>
+                  <input type="text" class="form-control" id='input-url' placeholder="Enter your cover image URL...">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1" style="font-weight: bold; color: rgb(247, 202, 202); font-size: 20px;">The Album</label>
+                    <select class="form-control" id="mySelect">
+                      
+                    </select>
+                  </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+          </p>
+        </div>
+      </section>
 
-          <br><br>
-      
-          <input id= 'create-button' type="submit" name="submit" value="Create New cover" class="submit">
-        </form>
-      
+      <div class="album py-5 bg-light">
+        <div class="container" id="cover-container">
+            <div class="">
+
+          <div class="row">
+            
+            
+            <!--END OF ROW-->
+          </div>
+        </div>
+       </div>
       </div>
 
-<div id="cover-container">
+    </main>
 
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Womack Creation &copy; see you next time!</p>
+      </div>
+    </footer>
 
-</div>
-
-</body>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    
+  </body>
 </html>

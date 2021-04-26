@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="src/cover.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  
+
+</head>
+<body style="text-align: center;">
+    
+    <div class="form-container">
+
+        <form id="create-album-form" style="">
+            <h3>Create a Album!</h3>
+        
+            <input id='input-title' type="text" name="title" value="" placeholder="Enter your album title..." class="input-text">
+            <br><br>
+            <input id='input-tracks' type="text" name="tracks" value="" placeholder="Enter your album tracks count..." class="input-text">
+            <br><br>
+            <input id='input-artist' type="text" name="artist" value="" placeholder="Enter your album's artist..." class="input-text">
+            <br><br>
+            <textarea id='input-origin' name="origin" rows="8" cols="80" value="" placeholder="Enter your album origin or back story..."></textarea>
+            
+           
+            <br><br>
+        
+            <input id= 'create-button' type="submit" name="submit" value="Create New album" class="submit">
+            <button type="button" class="btn btn-dark">Dark</button>
+          </form>
+
+        <form id="create-cover-form" style="">
+          <h3>Create a Cover!</h3>
+      
+          <input id='input-stars' type="text" name="stars" value="" placeholder="Enter your cover star rating..." class="input-text">
+          <br><br>
+          <input id='input-url' type="text" name="image" value="" placeholder="Enter your cover image URL..." class="input-text">
+          <br><br>
+      
+          <select id="mySelect" name="albums">
+          
+          </select>
+
+          <br><br>
+      
+          <input id= 'create-button' type="submit" name="submit" value="Create New cover" class="submit">
+        </form>
+      
+      </div>
+
+<div id="cover-container">
+
+
+</div>
+
+</body>
+</html>

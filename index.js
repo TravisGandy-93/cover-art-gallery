@@ -8,7 +8,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const createCoverForm = document.querySelector("#create-cover-form")
   createAlbumForm.addEventListener("submit", (e) => createAlbumFormHandler(e))
   createCoverForm.addEventListener("submit", (e) => createCoverFormHandler(e))
+  createAlbumForm.addEventListener("submit", albumReset())
+  createCoverForm.addEventListener("submit", coverReset())
 });
+
+function albumReset(){
+ document.querySelector("#input-title").value='';
+ document.querySelector("#input-tracks").value='';
+ document.querySelector('#input-artist').value='';
+ document.querySelector('#input-origin').valuee='';
+    }
+
+function coverReset(){
+    document.querySelector('#input-stars').value='';
+    document.querySelector('#input-url').value='';
+}
 
 function getCovers() {
     fetch(endPoint)
@@ -16,25 +30,13 @@ function getCovers() {
       .then(covers => {
         covers.data.forEach(cover => {
             // double check how your data is nested in the console so you can successfully access the attributes of each individual object
-            render(cover)
+         //  debugger
+            let newCover = new Cover(cover, cover.attributes)
+           document.querySelector('#cover-container').innerHTML += newCover.renderCover()
+           
             })
            // .catch(err => console.log(err))
     })
-}
-
-function render(cover) {
-    const coverMarkup = `
-              <div data-id=${cover.id}>
-                <img src=${cover.attributes.image_url} height="250" width="250">
-                <h3>CoverArt has ${cover.attributes.stars} star rating</h3>
-                <h2>${cover.attributes.album.title}</h2>
-                <h4>tracks: ${cover.attributes.album.tracks}</h4>
-                <button data-id=${cover.id}>edit</button>
-              </div>
-              <br><br>`;
-    
-              document.querySelector('#cover-container').innerHTML += coverMarkup
-        
 }
 
 function populateAlbumDropdown(){
@@ -56,6 +58,7 @@ function createAlbumFormHandler(e){
     const artistInput = document.querySelector('#input-artist').value
     const originInput = document.querySelector('#input-origin').value
     postFetchAlbum(titleInput, tracksInput, artistInput, originInput)
+  
 }
 
 function createCoverFormHandler(e) {
@@ -81,16 +84,21 @@ function postFetchAlbum(title, tracks, artist, origin) {
 }
 
 function postFetchCover(stars, image_url, album_id) {
+    
     const starData = {stars, image_url, album_id}
+    
     fetch(endPoint, { 
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(starData)
          })
       .then(res => res.json())
-      .then(covers => {
-          console.log(covers);
-          getCovers();
+      .then(cover => {
+          
+        const newCover = new Cover(cover.data.id, cover.data.attributes)
+
+        document.querySelector('#cover-container').innerHTML += newCover.renderCover();
+       // location.reload()
       })
     
 }
