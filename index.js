@@ -8,9 +8,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const createCoverForm = document.querySelector("#create-cover-form")
   createAlbumForm.addEventListener("submit", (e) => createAlbumFormHandler(e))
   createCoverForm.addEventListener("submit", (e) => createCoverFormHandler(e))
-  createAlbumForm.addEventListener("submit", reset())
-  createCoverForm.addEventListener("submit", reset())
+  createAlbumForm.addEventListener("submit", albumReset())
+  createCoverForm.addEventListener("submit", coverReset())
 });
+
+function albumReset(){
+ document.querySelector("#input-title").value='';
+ document.querySelector("#input-tracks").value='';
+ document.querySelector('#input-artist').value='';
+ document.querySelector('#input-origin').valuee='';
+    }
+
+function coverReset(){
+    document.querySelector('#input-stars').value='';
+    document.querySelector('#input-url').value='';
+}
 
 function getCovers() {
     fetch(endPoint)
