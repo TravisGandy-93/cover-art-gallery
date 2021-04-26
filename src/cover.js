@@ -11,7 +11,9 @@ class Cover {
     }
 
     renderCover() {
-        return `    <div class="col-md-4">
+        return `    
+        
+        <div class="col-sm-6;">
         <div class="card mb-4 box-shadow">
         <img class="card-img-top" src="${this.image_url}" alt="Card image cap">
           <div class="card-body">

@@ -6,7 +6,8 @@
     padding-top: var(--jumbotron-padding-y);
     padding-bottom: var(--jumbotron-padding-y);
     margin-bottom: 0;
-    background-color: #fff;
+    background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/keshia-ii-taliaferro-woodfork.jpg");
+    background-size: cover;
   }
   @media (min-width: 768px) {
     .jumbotron {
@@ -38,3 +39,7 @@
   
   .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
   
+  .mx-auto {
+    margin-right: auto !important;
+    margin-left: auto !important;
+   }
