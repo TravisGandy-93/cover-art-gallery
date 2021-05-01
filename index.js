@@ -1,11 +1,16 @@
 const endPoint = "http://127.0.0.1:3000/api/v1/covers";
 const albumEndPoint = "http://127.0.0.1:3000/api/v1/albums";
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
   getCovers()
   populateAlbumDropdown()
   const createAlbumForm = document.querySelector("#create-album-form")
   const createCoverForm = document.querySelector("#create-cover-form")
+  const searchBar = document.querySelector('#search')
+
+  searchBar.addEventListener("click", (e) => showAlbumsCovers(e))
   createAlbumForm.addEventListener("submit", (e) => createAlbumFormHandler(e))
   createCoverForm.addEventListener("submit", (e) => createCoverFormHandler(e))
   createAlbumForm.addEventListener("submit", function(){createAlbumForm.reset()})
@@ -39,6 +44,28 @@ function populateAlbumDropdown(){
         })
     })
 }
+
+  function showAlbumsCovers(e){
+    e.preventDefault()
+    const starInput = document.querySelector('#search_field').value
+    getAlbumCovers(starInput)
+  }
+
+  function getAlbumCovers(nameInput){
+    fetch(endPoint)
+    .then(res => res.json())
+    .then(covers => {
+      let specificCover = covers.data.filter((cover) => cover.attributes.stars == nameInput)
+      console.log(specificCover);
+      document.querySelector('#cover-container').innerHTML = "";
+     
+        for (i = 0; i < specificCover.length; i++){
+          let newCover = new Cover(specificCover[i].id, specificCover[i].attributes)
+          document.querySelector('#cover-container').innerHTML += newCover.renderCover()
+        }  
+    })
+  }
+
 
 function createAlbumFormHandler(e){
     e.preventDefault()
@@ -83,7 +110,6 @@ function postFetchCover(stars, image_url, album_id) {
          })
       .then(res => res.json())
       .then(cover => {
-          
         const newCover = new Cover(cover.data.id, cover.data.attributes)
 
         document.querySelector('#cover-container').innerHTML += newCover.renderCover();

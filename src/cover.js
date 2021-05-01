@@ -13,7 +13,7 @@ class Cover {
     renderCover() {
         return `    
         
-        <div class="col-sm-6;">
+        <div class="col-sm-6;" id="${this.id}">
         <div class="card mb-4 box-shadow">
         <img class="card-img-top" src="${this.image_url}" alt="Card image cap">
           <div class="card-body">
